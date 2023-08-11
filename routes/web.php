@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 //prefix permet de n'avoir qu'une seule route pour l'appel du controller(->controller) et pour l'appel de la vue(->name)
-Route::prefix('/watch')->name('watch.')->controller(WatchController::class)->group(function(){
+Route::prefix('/watches')->name('watches.')->controller(WatchController::class)->group(function(){
     Route::get('/', 'index')->name('index');
     
     Route::get('/{slug}/{id}', 'show')->where([

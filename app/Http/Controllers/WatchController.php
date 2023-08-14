@@ -25,15 +25,19 @@ class WatchController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required|string|max:255',
-            'picture' => 'required|image'
+            'brand',
+            'name',
+            'picture',
+            'date',
+            'price'
         ]);
 
          $validated = [
-            'title' => $request->title,
-            'content' => $request->content,
+            'brand' => $request->brand,
+            'name' => $request->name,
             'picture' => $request->picture->store('watch'),
+            'date' => $request->date,
+            'price' => $request->price,
             'user_id' => auth()->id()
          ];
          Watch::create($validated);

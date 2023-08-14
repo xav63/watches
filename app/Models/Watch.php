@@ -10,9 +10,11 @@ class Watch extends Model
     use HasFactory;
     protected $fillable = [
 
-        'title',
-        'content',
+        'brand',
+        'name',
         'picture',
+        'date',
+        'price',
         'user_id',
 
     ];

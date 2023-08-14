@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('brand');
             $table->string('name');
             $table->string('picture')->nullable();
-            $table->year('année');
+            $table->year('date');
             $table->integer('price');
             $table->timestamps();
         });

@@ -11,7 +11,7 @@ class WatchController extends Controller
 {
     public function index(): View
     {
-        return view('watches.index', [
+        return view('watches.index',[
             'watch' => Watch::with('user')->latest()->get(),
         ]);
     }
@@ -25,17 +25,18 @@ class WatchController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'brand',
-            'name',
-            'picture',
+            'brand'=> 'required|string|max:255',
+            'name'=> 'required|string|max:255',
+            'picture'=> 'required|image',
             'date',
-            'price'
+            'price',
+            
         ]);
 
          $validated = [
             'brand' => $request->brand,
             'name' => $request->name,
-            'picture' => $request->picture->store('watch'),
+            'picture' => $request->picture->store('watches'),
             'date' => $request->date,
             'price' => $request->price,
             'user_id' => auth()->id()
@@ -48,7 +49,42 @@ class WatchController extends Controller
 
     public function show(Watch $watch)
     {
-        $watch = Watch::with(['comments.user', 'user'])->find($watch->id);
+        
         return view('watches.show', compact('watch'));
+    }
+
+    public function update(Request $request, Watch $watch): RedirectResponse
+    {
+        $this->authorize('update', $watch);
+
+        $validated = $request->validate([
+            'brand'=> 'required|string|max:255',
+            'name'=> 'required|string|max:255',
+            'picture'=> 'required|image',
+            'date',
+            'price',
+        ]);
+
+         $validated = [
+            'brand' => $request->brand,
+            'name' => $request->name,
+            'picture' => $request->picture->store('watches'),
+            'date' => $request->date,
+            'price' => $request->price,
+            'user_id' => auth()->id()
+         ];
+
+        
+
+        $watch->update($validated);
+
+        return redirect(route('watches.index'));
+    }
+
+    public function destroy(Watch $watch): RedirectResponse
+    {
+        $this->authorize('delete', $watch);
+        $watch->delete();
+        return redirect(route('watches.index'));
     }
 }

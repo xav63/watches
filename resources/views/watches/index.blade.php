@@ -5,18 +5,19 @@
 
 
 @section('content')
-    <h1 class="text-center">Watches</h1>
-    {{-- Les accolades font automatiquement de l'échappement et évite ainsi des d'insérer des script  --}}
+    {{-- Les accolades font automatiquement de l'échappement et évite ainsi d'insérer des scripts  --}}
         @foreach($watch as $watch)
-            <article>
-                <img src="{{$watch->picture}}" alt="photo">
-                <h2> {{ $watch->brand}} </h2>
-                <h3>{{$watch->name}}</h3>
-                <div class="flex items-center flex-wrap ">
-                    <a href="{{route('watches.show', $post)}}" class="bg-gradient-to-r from-cyan-400 to-blue-400 hover:scale-105 drop-shadow-md  shadow-cla-blue px-4 py-1 rounded-lg">En savoir plus</a>
+            
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{$watch->picture}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{ $watch->brand}}</h5>
+                  <p class="card-text">{{$watch->name}}</p>
+                  <a href="{{ route('watches.show', $watch) }}" class="btn btn-primary">En savoir plus</a>
                 </div>
-            </article>
+              </div>
+
         @endforeach
 
-
+ 
 @endsection

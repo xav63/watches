@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('favoris', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->string('brand');
+            $table->string('name');
+            $table->string('picture')->nullable();
+            $table->year('date');
+            $table->integer('price');
             $table->timestamps();
         });
     }

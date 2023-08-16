@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WatchController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Watch;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,15 +30,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
 //prefix permet de n'avoir qu'une seule route pour l'appel du controller(->controller) et pour l'appel de la vue(->name)
 Route::prefix('/watches')->name('watches.')->controller(WatchController::class)->group(function(){
     Route::get('/', 'index')->name('index');
-    
-    Route::get('/{slug}/{id}', 'show')->where([
-        'id' => '[0-9]+',
-        'slug' => '[a-z0-9\+]'
-    ])->name('show');
+    Route::get('/show/{watch}', 'show')->name('show');
 });
+
 
 require __DIR__.'/auth.php';

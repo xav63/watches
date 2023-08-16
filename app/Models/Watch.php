@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Watch extends Model
 {
@@ -17,7 +18,8 @@ class Watch extends Model
         'picture',
         'date',
         'price',
-        'user_id'
+        'user_id',
+        'complication_id'
 
     ];
     
@@ -33,7 +35,7 @@ class Watch extends Model
 
     {
 
-        return $this->hasMany(Complication::class);
+        return $this->hasmany(Complication::class);
 
     }
     public function favoris(): HasMany

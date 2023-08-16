@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
 
 
          User::factory(10)->create();
+         Complication::factory(10)->create();
          Watch::factory(10)->create();
-         Complication::factory(1)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

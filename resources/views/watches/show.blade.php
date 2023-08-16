@@ -13,7 +13,12 @@
         <h3> Nom du modèle : {{ $watch->name }} </h3>
         <p> prix : {{ $watch->price }} €</p>
         <p> Année : {{ $watch->date }} </p>
-        <p> Complications : </p>
+        <p> Complications : 
+            @foreach($watch->complications as $complication)
+            {{ $complication->complication }}
+            <br>
+            @endforeach
+        </p>
         <a href="">Ajouter au favoris</a>
     </div>
     </article>

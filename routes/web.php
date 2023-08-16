@@ -34,6 +34,9 @@ Route::middleware('auth')->group(function () {
 Route::prefix('/watches')->name('watches.')->controller(WatchController::class)->group(function(){
     Route::get('/', 'index')->name('index');
     Route::get('/show/{watch}', 'show')->name('show');
+    Route::get('/create', 'create')->name('create');
+    Route::get('/store', 'store')->name('store');
+    
 });
 
 

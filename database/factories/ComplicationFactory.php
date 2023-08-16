@@ -17,7 +17,7 @@ class ComplicationFactory extends Factory
     public function definition(): array
     {
         return [
-            "watch_id" => rand(1,10),
+            //"watch_id" => rand(1,10),
             "complication" => fake()->randomElement([
                 "phase de lune",
                 "seconde rattrapante",

@@ -9,11 +9,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Complication extends Model
 {
     use HasFactory;
+    
 
     public function watch(): BelongsTo
 
     {
 
+        
         return $this->belongsTo(Watch::class);
 
     }

@@ -30,6 +30,7 @@ class WatchController extends Controller
             'picture'=> 'required|image',
             'date',
             'price',
+            'complication'
             
         ]);
 
@@ -39,6 +40,7 @@ class WatchController extends Controller
             'picture' => $request->picture->store('watches'),
             'date' => $request->date,
             'price' => $request->price,
+            'complication' => $request->complication,
             'user_id' => auth()->id()
          ];
          Watch::create($validated);
@@ -49,8 +51,9 @@ class WatchController extends Controller
 
     public function show(Watch $watch)
     {
-        
+       
         return view('watches.show', compact('watch'));
+        
     }
 
     public function update(Request $request, Watch $watch): RedirectResponse
@@ -63,6 +66,7 @@ class WatchController extends Controller
             'picture'=> 'required|image',
             'date',
             'price',
+            'complication'
         ]);
 
          $validated = [
@@ -71,6 +75,7 @@ class WatchController extends Controller
             'picture' => $request->picture->store('watches'),
             'date' => $request->date,
             'price' => $request->price,
+            'complication' => $request->complication,
             'user_id' => auth()->id()
          ];
 

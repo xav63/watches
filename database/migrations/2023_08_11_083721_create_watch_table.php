@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('watches', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('complication_id')->constrained()->cascadeOnDelete();
             $table->string('brand');
             $table->string('name');
             $table->string('picture')->nullable();

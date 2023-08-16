@@ -28,9 +28,20 @@
     </nav>
 </header>
 <body>
-    
+  <div class="d-flex justify-content-center">
+  <nav class="navbar navbar-light bg-light w-100">
+    <form class="form-inline justify-content-center w-100">
+      <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une complication" aria-label="Search">
+      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Rechercher</button>
+    </form>
+  </div>
+  </nav>
     <div class="container">
         @yield('content')
     </div>
+    <hr>
 </body>
+<footer>
+  <p class="text justify-content-end">Copyright XS</p>
+</footer>
 </html>

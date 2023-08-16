@@ -5,6 +5,8 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\User;
+use App\Models\Watch;
+use App\Models\Complication;
 use Illuminate\Database\Seeder;
 use Database\Seeders\WatchSeeder;
 
@@ -17,8 +19,9 @@ class DatabaseSeeder extends Seeder
     {
 
 
-         \App\Models\User::factory(10)->create();
-         \App\Models\Watch::factory(10)->create();
+         User::factory(10)->create();
+         Watch::factory(10)->create();
+         Complication::factory(1)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

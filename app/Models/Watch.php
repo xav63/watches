@@ -20,11 +20,7 @@ class Watch extends Model
         'user_id'
 
     ];
-    protected $dispatchesEvents = [
-
-        'created' => WatchCreated::class,
-
-    ];
+    
 
     public function user(): BelongsTo
 

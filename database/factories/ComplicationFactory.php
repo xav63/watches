@@ -2,13 +2,12 @@
 
 namespace Database\Factories;
 
-
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class WatchFactory extends Factory
+class ComplicationFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,13 +17,13 @@ class WatchFactory extends Factory
     public function definition(): array
     {
         return [
-            "user_id" => rand(1,10),
-            "brand" => fake()->words(2, true),
-            "name" => fake()->words(2, true),
-            'picture' => fake()->imageUrl(),
-            "date" => fake()->date('Y'),
-            "price" => fake()->numberBetween(1000, 2000),
-            
+            "watch_id" => rand(1,10),
+            "complication" => fake()->randomElement([
+                "phase de lune",
+                "seconde rattrapante",
+                "quantième",
+                "heures sautante",
+            ])
         ];
     }
 }

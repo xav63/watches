@@ -7,7 +7,7 @@
 @section('content')
     
     <article class="d-flex flex-row">
-        <img class="border-primary mb-3 w-50 .img-thumbnail rounded" src="{{ $watch->picture }}" alt="photo">
+        <img class="border-primary mb-3 w-50 .img-thumbnail rounded mr-auto p-2" src="{{ $watch->picture }}" alt="photo">
     <div class="align-middle">
         <h2> Marque : {{ $watch->brand }} </h2>
         <h3> Nom du modèle : {{ $watch->name }} </h3>

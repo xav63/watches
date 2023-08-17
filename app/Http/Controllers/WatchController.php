@@ -56,6 +56,12 @@ class WatchController extends Controller
         
     }
 
+    public function edit(Watch $watch): View
+    {
+        $this->authorize('update', $watch);
+        return view('posts.edit', ['post' => $watch]);
+    }
+
     public function update(Request $request, Watch $watch): RedirectResponse
     {
         $this->authorize('update', $watch);

@@ -36,6 +36,7 @@ Route::prefix('/watches')->name('watches.')->controller(WatchController::class)-
     Route::get('/show/{watch}', 'show')->name('show');
     Route::get('/create', 'create')->name('create');
     Route::get('/store', 'store')->name('store');
+    Route::get('/edit', 'edit')->name('edit');
     
 });
 

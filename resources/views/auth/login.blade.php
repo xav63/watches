@@ -1,10 +1,21 @@
+@extends('base')
+@section('title', 'Connexion')
+    
+
+
+@section('content')
+<div class="text-center">
+    <h1 class="font-weight-bolder fs-1">Se connecter</h1>
+</div>
 <x-guest-layout>
+    
+    
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
-
+        
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
@@ -45,3 +56,4 @@
         </div>
     </form>
 </x-guest-layout>
+@endsection

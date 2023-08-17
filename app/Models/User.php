@@ -42,7 +42,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function posts(): HasMany
+    public function watches(): HasMany
 
     {
 
@@ -50,14 +50,9 @@ class User extends Authenticatable
         
 
     }
-    public function complication(): HasMany
-
-    {
-
-        return $this->hasMany(Complication::class);
         
 
-    }
+    
     public function favoris(): HasMany
 
     {

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('complications', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('watch_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('watch_id')->constrained()->cascadeOnDelete();
             $table->string('complication')->nullable();
             $table->timestamps();
         });

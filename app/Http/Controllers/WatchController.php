@@ -12,7 +12,7 @@ class WatchController extends Controller
     public function index(): View
     {
         return view('watches.index',[
-            'watch' => Watch::with('user')->latest()->get(),
+            'watches' => Watch::with('user')->latest()->get(),
         ]);
     }
 
@@ -24,26 +24,26 @@ class WatchController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'brand'=> 'required|string|max:255',
-            'name'=> 'required|string|max:255',
-            'picture'=> 'required|image',
-            'date',
-            'price',
-            'complication'
+        // $request->validate([
+        //     'brand'=> 'required|string|max:255',
+        //     'name'=> 'required|string|max:255',
+        //     'picture'=> 'required|image',
+        //     // 'date',
+        //     // 'price',
+        //     // 'complication'
             
-        ]);
+        // ]);
 
-         $validated = [
+         $data = [
             'brand' => $request->brand,
             'name' => $request->name,
             'picture' => $request->picture->store('watches'),
             'date' => $request->date,
             'price' => $request->price,
             'complication' => $request->complication,
-            'user_id' => auth()->id()
+            'user_id' => auth()->user()->id
          ];
-         Watch::create($validated);
+         Watch::create($data);
 
  
         return redirect(route('watches.index'));

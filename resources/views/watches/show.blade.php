@@ -14,14 +14,16 @@
         <p> prix : {{ $watch->price }} €</p>
         <p> Année : {{ $watch->date }} </p>
         <p> Complications : 
-            {{-- @foreach($watch->complications as $complication)
+            @foreach($watch->complications as $complication)
             {{ $complication->complication }}
             <br>
-            @endforeach --}}
+            @endforeach
         </p>
-        <a href="">Ajouter au favoris</a>
+        <button type="button" class="btn btn-primary " href=''>Ajouter aux favoris</button><br>
+        <button type="button" class="btn btn-success" href='{{ route('watches.edit', $watch) }}'>Modifier</button><br>
+        <button type="button" class="btn btn-danger" href=''>Supprimer</button>
     </div>
-    {{-- @if ($post->user->is(auth()->user()))
+   {{-- @if ($watch->user->is(auth()->user()))
         <x-dropdown>
             <x-slot name="trigger">
                 <button>
@@ -35,13 +37,14 @@
                 <x-dropdown-link :href="route('watches.edit', $watch)">
                     {{ __('Modifier') }}
                 </x-dropdown-link>
-                <form method="POST" action="{{('watches.destroy', $watch) }}">
+                <form method="POST" action="{{ route('watches.destroy', $watch)}}">
                     @csrf
                     @method('delete')
-                    <x-dropdown-link :href="route('watches.destroy', $watch)" onclick="preventDefault(); this.closest('fsubmit();">
+                    <x-dropdown-link :href="route('watches.destroy', $watch)" onclick="preventDefault(); this.closest('form').submit();">
                         {{ __('Supprimer') }}
                     </x-dropdown-link>
-        @endif --}}
+                </form>
+    @endif     --}}
     </article>
     
 @endsection

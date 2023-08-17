@@ -1,3 +1,11 @@
+@extends('base')
+@section('title', 'Connexion')
+    
+
+
+@section('content')
+
+
 <x-app-layout>
 
     <x-slot name="header">
@@ -8,7 +16,7 @@
   
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
       <div class="max-w-5xl mx-auto p-4 sm:p-6 lg:p-8">
-        <form method="POST" enctype="multipart/form-data"
+        <form method="GET" enctype="multipart/form-data"
           action="{{ route('watches.store') }}" class="pb-4">
           @csrf
           <label for="brand">Marque :</label><br>
@@ -23,6 +31,14 @@
             <label for="price">Prix :</label><br>
             <input type="text" name="price" id="price"
               class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+              <select class="form-select" aria-label="Default select example" type="text" name="complications" id="complications">
+                <option selected>choisir une complication</option>
+                <option value="1">Phase de lune</option>
+                <option value="2">Seconde rattrapante</option>
+                <option value="3">Quantième</option>
+                <option value="4">Heure sautante</option>
+              </select><br>
+              
           <label for="picture">Image :</label><br />
           <input type="file" name="picture" id="picture">
   
@@ -35,3 +51,4 @@
     </div>
   
   </x-app-layout>
+  @endsection

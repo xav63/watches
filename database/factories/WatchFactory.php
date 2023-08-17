@@ -24,7 +24,7 @@ class WatchFactory extends Factory
             'picture' => fake()->imageUrl(),
             "date" => fake()->date('Y'),
             "price" => fake()->numberBetween(1000, 2000),
-            "complication_id" => rand(1,10)
+            
             
         ];
     }

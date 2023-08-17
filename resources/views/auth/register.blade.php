@@ -1,3 +1,14 @@
+@extends('base')
+@section('title', 'Inscription')
+    
+
+
+@section('content')
+
+<div class="text-center">
+    <h1 class="font-weight-bolder fs-1">S'inscrire</h1>
+</div>
+
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
@@ -47,6 +58,11 @@
             <x-primary-button class="ml-4">
                 {{ __('Enregistrement') }}
             </x-primary-button>
+            
         </div>
+        <br>
     </form>
+    
 </x-guest-layout>
+
+@endsection

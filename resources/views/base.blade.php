@@ -29,13 +29,15 @@
 </header>
 <body>
   <div class="d-flex justify-content-center">
-  <nav class="navbar navbar-light bg-light w-100">
-    <form class="form-inline justify-content-center w-100">
-      <input class="form-control mr-sm-2" type="search" placeholder="Rechercher une complication" aria-label="Search">
-      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Rechercher</button>
-    </form>
+    <select class="form-select" aria-label="Default select example">
+      <option selected>choisir une complication</option>
+      <option value="1">Phase de lune</option>
+      <option value="2">Seconde rattrapante</option>
+      <option value="3">Quantième</option>
+      <option value="4">Heure sautante</option>
+    </select>
   </div>
-  </nav>
+  <hr>
   <br>
     <div class="container">
         @yield('content')
@@ -43,6 +45,8 @@
     <hr>
 </body>
 <footer>
-  <p class="text justify-content-end">Copyright XS</p>
+  <div class="d-flex justify-content-end">
+  <p >Copyright XS</p>
+</div>
 </footer>
 </html>

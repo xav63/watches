@@ -1,11 +1,46 @@
-@extends('base')
+{{-- @extends('base')
 @section('title', 'Connexion')
     
 
 
-@section('content')
+@section('content') --}}
+<nav>
+    <ul class="flex sm:justify-end space-x-4 text-sky-600">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{route('watches.index')}}">Accueil</a>
+        </li>
+        {{-- Connection --}}
+        @auth
+        <li>
+          <a class="nav-link" href="{{ route('dashboard') }}">
+          {{ Auth::user()->name }}
+          </a>
+        </li>
+        <li>
+          <!-- Authentication -->
+          <form method="POST" action="{{ route('logout') }}">
+            @csrf
+
+            <a class="nav-link" href="route('logout')"
+                    onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                {{ __('se déconnecter') }}
+            </a>
+        </form>
+        </li>
+        </li>
+        @else
+       
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('register')}}">{{ __('S\'inscrire') }}</a>
+        </li>
+        @endauth
+      </ul>
+      
+      <hr>
+    </nav>
 <div class="text-center">
-    <h1 class="font-weight-bolder fs-1">Se connecter</h1>
+    <h1 class="font-weight-bolder text-4xl">Se connecter</h1>
 </div>
 <x-guest-layout>
     
@@ -56,4 +91,10 @@
         </div>
     </form>
 </x-guest-layout>
-@endsection
+<br>
+{{-- @endsection --}}
+<footer>
+    <div class="d-flex justify-content-end text-right">
+    <p >Copyright XS</p>
+  </div>
+  </footer>

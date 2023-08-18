@@ -21,7 +21,7 @@ class WatchFactory extends Factory
             "user_id" => rand(1,10),
             "brand" => fake()->words(2, true),
             "name" => fake()->words(2, true),
-            'picture' => fake()->imageUrl(),
+            'picture' => null,
             "date" => fake()->date('Y'),
             "price" => fake()->numberBetween(1000, 2000),
             

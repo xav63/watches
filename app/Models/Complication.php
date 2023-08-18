@@ -10,6 +10,10 @@ class Complication extends Model
 {
     use HasFactory;
     
+    protected $fillable = [
+        'watch_id',
+        'complication'
+    ];
 
     public function watch(): BelongsTo
 

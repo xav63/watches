@@ -11,16 +11,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Watch extends Model
 {
     use HasFactory;
-    protected $fillable = [
 
+    protected $fillable = [
         'brand',
         'name',
         'picture',
         'date',
         'price',
         'user_id'
-        
-
     ];
     
 

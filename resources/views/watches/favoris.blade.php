@@ -3,8 +3,6 @@
 @section('title', 'Accueil')
     
 
-    
-
 
 @section('content')
     

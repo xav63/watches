@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Complication;
 use App\Models\Watch;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 
 class WatchController extends Controller
 {
@@ -40,10 +42,14 @@ class WatchController extends Controller
             'picture' => $request->picture->store('watches'),
             'date' => $request->date,
             'price' => $request->price,
-            'complication' => $request->complication,
             'user_id' => auth()->user()->id
          ];
-         Watch::create($data);
+         $newWatch = Watch::create($data);
+
+         Complication::create([
+            'watch_id' => $newWatch->id,
+            'complication' => $request->complication
+         ]);
 
  
         return redirect(route('watches.index'));

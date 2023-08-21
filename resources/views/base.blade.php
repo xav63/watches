@@ -9,12 +9,12 @@
 </head>
 <header>
 <div class="text-center mx-auto text-xs">
-  {{-- <img src="{{asset('/images/montre-de-luxe.png')}}" alt=""> --}}
   <h1 class="text-center">Watches</h1>
 </div>
   <hr>
     <nav>
     <ul class="nav justify-content-end">
+      
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{route('watches.index')}}">Accueil</a>
         </li>
@@ -24,6 +24,9 @@
           <a class="nav-link" href="{{ route('dashboard') }}">
           {{ Auth::user()->name }}
           </a>
+        </li>
+        <li>
+          <a class="nav-link active" aria-current="page" href="{{route('watches.index')}}">favoris</a>
         </li>
         <li>
           <!-- Authentication -->
@@ -56,10 +59,10 @@
   <div class="d-flex justify-content-center">
     <select class="form-select" aria-label="Default select example">
       <option selected>choisir une complication</option>
-      <option value="1">Phase de lune</option>
-      <option value="2">Seconde rattrapante</option>
-      <option value="3">Quantième</option>
-      <option value="4">Heure sautante</option>
+      <option value="Phase de lune">Phase de lune</option>
+      <option value="Seconde rattrapante">Seconde rattrapante</option>
+      <option value="Quantième">Quantième</option>
+      <option value="Heure sautante">Heure sautante</option>
     </select>
     
   </div>

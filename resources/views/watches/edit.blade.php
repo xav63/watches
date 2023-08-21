@@ -10,7 +10,7 @@
             <input type="text" name="name" id="name"
             class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" value="{{$watch->name}}">
             <label for="date">Date :</label><br>
-          <input type="text" name="date" id="date"
+            <input type="text" name="date" id="date"
             class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"value="{{$watch->date}}">
             <label for="price">Prix :</label><br>
             <input type="text" name="price" id="price"

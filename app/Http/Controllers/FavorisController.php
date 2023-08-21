@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Watch;
 use App\Models\favoris;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 
 class FavorisController extends Controller
@@ -10,9 +12,13 @@ class FavorisController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        //
+        return view('watches.index', [
+            'watch' => Watch::with('user')->latest()->get(),
+            'favoris' => Favoris::with('user')->latest()->get(),
+        ]);
+
     }
 
     /**

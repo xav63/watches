@@ -20,10 +20,20 @@
             @endforeach
         </p>
         
-        <button type="button" class="btn btn-primary " href='{{ route('watches.favoris', $watch) }}'>Ajouter aux favoris</button><br>
+        
+        
         @auth
-        <button type="button" class="btn btn-success" href='{{ route('watches.edit', $watch) }}'>Modifier</button><br>
-        <button type="button" class="btn btn-danger" href=''>Supprimer</button>
+        <a href='{{ route('watches.favoris', $watch) }}' class="btn btn-primary">Ajouter aux favoris</a><br>
+        <a href="{{ route('watches.edit', $watch) }}" class="btn btn-success">Modifier</a><br>
+        <form method="POST" action="{{ route('watches.destroy', $watch) }}">
+            @csrf
+            @method('delete')
+            <button
+                type="submit"
+                class="btn btn-danger"
+                href="{{ route('watches.destroy', $watch) }}"
+            >Supprimer</button>
+        </form>
         @endauth
     </div>
    

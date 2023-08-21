@@ -64,14 +64,11 @@ class WatchController extends Controller
 
     public function edit(Watch $watch): View
     {
-        $this->authorize('update', $watch);
-        return view('posts.edit', ['post' => $watch]);
+        return view('watches.edit', ['watch' => $watch]);
     }
 
     public function update(Request $request, Watch $watch): RedirectResponse
     {
-        $this->authorize('update', $watch);
-
         $validated = $request->validate([
             'brand'=> 'required|string|max:255',
             'name'=> 'required|string|max:255',
@@ -89,19 +86,18 @@ class WatchController extends Controller
             'price' => $request->price,
             'complication' => $request->complication,
             'user_id' => auth()->id()
-         ];
-
-        
+        ];
 
         $watch->update($validated);
 
         return redirect(route('watches.index'));
     }
 
-    public function destroy(Watch $watch): RedirectResponse
+    public function destroy(Watch $watch)
     {
-        $this->authorize('delete', $watch);
         $watch->delete();
         return redirect(route('watches.index'));
     }
+
+    
 }

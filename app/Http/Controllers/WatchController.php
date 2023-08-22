@@ -9,22 +9,30 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 
+use function Laravel\Prompts\search;
+
 class WatchController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
-
-        // $watch = Watch::query();
-        // if($complication = $request->complication){
-        //     $watch->where('complication', 'LIKE', '%'. $complication .'%')
-        //     ->orwhere('content', 'LIKE', '%'. $complication .'%');
+        // $query = Watch::latest()->get();
+        
+        // if($request->has('search')){
+        //     $search = $request->input('search');
+        //     $query->where(function ($q) use ($search){
+        //         $q->where('brand', 'like', '%{$search}%');
+        //         // ->orwhere('name', 'like', '%' . $search . '%')
+        //         // ->orwhere('complication', 'like', '%' . $search . '%');
+        //     });
         // }
+        
+        // $watches = $query;
+    //    return view('watches.index');
 
         return view('watches.index',[
-            'watches' => Watch::latest()->get(),
-            // 'watches' => $watches->with('user')->latest()->paginate(6),
-        ]);
-    }
+             'watches' => Watch::latest()->get(),
+         ]);
+     }
 
     public function create()
     {
@@ -107,5 +115,21 @@ class WatchController extends Controller
         return redirect(route('watches.index'));
     }
 
+    public function search(Request $request)
+    {
+        $search =$request->input('search');
+
+        $watches = Watch::query()
+            ->where('brand', 'like', '%' . $search . '%')
+            ->orwhere('name', 'like', '%' . $search . '%')
+            ->orwhere('complication', 'like', '%' . $search . '%')
+            ->get();
+        
+
+        
+        
+        return view('watches.index', compact('watches'));
+            
+        }
   
 }

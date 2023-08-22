@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Watch;
 use App\Models\favoris;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 
@@ -64,8 +65,11 @@ class FavorisController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(favoris $favoris)
+    public function destroy(favoris $favoris): RedirectResponse
     {
-        //
+    
+        $this->authorize('delete', $favoris);
+        $favoris->delete();
+        return redirect(route('watches.index'));
     }
 }

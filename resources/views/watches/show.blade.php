@@ -5,7 +5,7 @@
 
 
 @section('content')
-    
+    <br>
     <article class="d-flex flex-row">
         <img class="card-img-top mx-auto img-thumbnail w-50" src="{{ $watch->picture ? asset('storage/' . $watch->picture) : 'https://placehold.co/600x400' }}" alt="Card image cap">
     <div class="align-middle">
@@ -23,8 +23,20 @@
         
         
         @auth
-        <a href='{{ route('watches.favoris', $watch) }}' class="btn btn-primary">Ajouter aux favoris</a><br>
-        <a href="{{ route('watches.edit', $watch) }}" class="btn btn-success">Modifier</a><br>
+       
+        {{-- <form method="GET" enctype="multipart/form-data"
+          action="{{ route('watches.favoris') }}" class="pb-4">
+          @csrf
+          <button
+                type="submit"
+                class="btn btn-primary"
+                href="{{ route('watches.favoris', $watch) }}"
+            >Ajouter aux favoris</button>         --}}
+          <a href='{{ route('watches.favoris', $watch) }}' class="btn btn-primary">Ajouter aux favoris</a>
+          <br>
+        </form>
+        <a href="{{ route('watches.edit', $watch) }}" class="btn btn-success">Modifier</a>
+        
         <form method="POST" action="{{ route('watches.destroy', $watch) }}">
             @csrf
             @method('delete')
@@ -34,6 +46,7 @@
                 href="{{ route('watches.destroy', $watch) }}"
             >Supprimer</button>
         </form>
+        
         @endauth
     </div>
    

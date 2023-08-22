@@ -13,8 +13,16 @@ class WatchController extends Controller
 {
     public function index(): View
     {
+
+        // $watch = Watch::query();
+        // if($complication = $request->complication){
+        //     $watch->where('complication', 'LIKE', '%'. $complication .'%')
+        //     ->orwhere('content', 'LIKE', '%'. $complication .'%');
+        // }
+
         return view('watches.index',[
-            'watches' => Watch::with('user')->latest()->get(),
+            'watches' => Watch::latest()->get(),
+            // 'watches' => $watches->with('user')->latest()->paginate(6),
         ]);
     }
 
@@ -99,5 +107,5 @@ class WatchController extends Controller
         return redirect(route('watches.index'));
     }
 
-    
+  
 }

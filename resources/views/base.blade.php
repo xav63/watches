@@ -56,7 +56,8 @@
 </header>
 <body>
   {{-- Barre de recherche --}}
-  <div class="d-flex justify-content-center">
+
+  <div class="d-flex justify-content-center container">
     <select class="form-select" aria-label="Default select example">
       <option selected>choisir une complication</option>
       <option value="Phase de lune">Phase de lune</option>
@@ -64,7 +65,6 @@
       <option value="Quantième">Quantième</option>
       <option value="Heure sautante">Heure sautante</option>
     </select>
-    
   </div>
   <hr>
   <br>

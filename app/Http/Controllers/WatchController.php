@@ -122,7 +122,7 @@ class WatchController extends Controller
         $watches = Watch::query()
             ->where('brand', 'like', '%' . $search . '%')
             ->orwhere('name', 'like', '%' . $search . '%')
-            ->orwhere('complication', 'like', '%' . $search . '%')
+            // ->orwhere('complications', 'like', '%' . $search . '%')
             ->get();
         
 

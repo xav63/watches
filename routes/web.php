@@ -25,11 +25,6 @@ Route::get('/', [WatchController::class, 'index'])->name('watches.index');
 Route::get('/watches/show/{watch}', [WatchController::class, 'show'])->name('watches.show');
 Route::get('/search', [WatchController::class, 'search'])->name('search');
 
-//prefix permet de n'avoir qu'une seule route pour l'appel du controller(->controller) et pour l'appel de la vue(->name)
-// Route::prefix('/')->name('watches.')->controller(WatchController::class)->group(function(){
-//     Route::get('/show/{watch}', 'show')->name('show');
-    
-// });
 
 // Auth
 Route::get('/dashboard', function () {

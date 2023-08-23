@@ -56,22 +56,14 @@
 </header>
 <body>
   
-  {{-- <div class="d-flex justify-content-center container">
-    <select class="form-select" aria-label="Default select example">
-      <option selected>choisir une complication</option>
-      <option value="Phase de lune">Phase de lune</option>
-      <option value="Seconde rattrapante">Seconde rattrapante</option>
-      <option value="Quantième">Quantième</option>
-      <option value="Heure sautante">Heure sautante</option>
-    </select>
-  </div> --}}
   <br>
     <div class="container">
       {{-- Barre de recherche --}}
   <form action="{{ route('search')}}" method="GET" class="form-inline my-2 my-lg-0 d-flex justify-content-center container">
-    <input id='search' class="form-control mr-sm-2" type="search" name="search" placeholder="Rechercher une marque, un modèle ou une complication" >
+    <input id='search' class="form-control mr-sm-2" type="search" name="search" placeholder="Rechercher une marque ou un modèle" >
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
   </form>
+      {{-- Message en cas de non résultat --}}
   @if($watches->isNotEmpty())
     @foreach ($watches as $watch)
         

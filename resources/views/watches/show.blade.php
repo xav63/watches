@@ -7,7 +7,10 @@
 @section('content')
     <br>
     <article class="d-flex flex-row">
-        <img class="card-img-top mx-auto img-thumbnail w-50" src="{{ $watch->picture ? asset('storage/' . $watch->picture) : 'https://placehold.co/600x400' }}" alt="Card image cap">
+    <div class="card-img-top mx-auto w-50">
+        <img class="img-thumbnail img-fluid" src="{{ $watch->picture ? asset('storage/' . $watch->picture) : 'https://placehold.co/600x400' }}" alt="Card image cap">
+    </div>
+    <blockquote class="blockquote text-bottom"> 
     <div class="align-middle">
         <h2> Marque : {{ $watch->brand }} </h2>
         <h3> Nom du modèle : {{ $watch->name }} </h3>
@@ -48,6 +51,7 @@
         </form>
         
         @endauth
+    </blockquote>
     </div>
    
     </article>

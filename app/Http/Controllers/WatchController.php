@@ -13,21 +13,8 @@ use function Laravel\Prompts\search;
 
 class WatchController extends Controller
 {
-    public function index(Request $request): View
+    public function index(): View
     {
-        // $query = Watch::latest()->get();
-        
-        // if($request->has('search')){
-        //     $search = $request->input('search');
-        //     $query->where(function ($q) use ($search){
-        //         $q->where('brand', 'like', '%{$search}%');
-        //         // ->orwhere('name', 'like', '%' . $search . '%')
-        //         // ->orwhere('complication', 'like', '%' . $search . '%');
-        //     });
-        // }
-        
-        // $watches = $query;
-    //    return view('watches.index');
 
         return view('watches.index',[
              'watches' => Watch::latest()->get(),

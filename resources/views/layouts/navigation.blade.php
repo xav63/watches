@@ -17,18 +17,18 @@
                     </x-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-sky-600">
+                {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-sky-600">
                     <x-nav-link :href="route('watches.favoris')" :active="request()->routeIs('dashboard')">
                         {{ __('Favoris') }}
                     </x-nav-link>
-                </div>
-
+                </div> --}}
+                @if (Auth::user()->is_admin)
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-sky-600">
                     <x-nav-link :href="route('watches.create')" :active="request()->routeIs('dashboard')">
                         {{ __('Création') }}
                     </x-nav-link>
                 </div>
-
+                @endif
 
 
 

@@ -29,15 +29,15 @@ class WatchController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        // $request->validate([
-        //     'brand'=> 'required|string|max:255',
-        //     'name'=> 'required|string|max:255',
-        //     'picture'=> 'required|image',
-        //     // 'date',
-        //     // 'price',
-        //     // 'complication'
+        $request->validate([
+            'brand'=> 'required|string|max:255',
+            'name'=> 'required|string|max:255',
+            'picture'=> 'required|image',
+            // 'date',
+            // 'price',
+            // 'complication'
             
-        // ]);
+        ]);
 
          $data = [
             'brand' => $request->brand,
@@ -112,7 +112,6 @@ class WatchController extends Controller
             // ->orwhere('complications', 'like', '%' . $search . '%')
             ->get();
         
-
         
         
         return view('watches.index', compact('watches'));

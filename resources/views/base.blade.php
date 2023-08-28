@@ -39,9 +39,9 @@
                             {{ Auth::user()->name }}
                         </a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('dashboard') }}">favoris</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -91,7 +91,7 @@
         <h3 class="container text-center">Pas de résultats</h3>
     </div>
   @endif --}}
-        <div>
+        <div class="show">
             @yield('content')
         </div>
         <hr>

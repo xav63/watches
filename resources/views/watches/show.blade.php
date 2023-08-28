@@ -35,9 +35,10 @@
                 class="btn btn-primary"
                 href="{{ route('watches.favoris', $watch) }}"
             >Ajouter aux favoris</button>         --}}
-          <a href='{{ route('watches.favoris', $watch) }}' class="btn btn-primary">Ajouter aux favoris</a>
+          {{-- <a href='{{ route('watches.favoris', $watch) }}' class="btn btn-primary">Ajouter aux favoris</a> --}}
           <br>
         </form>
+        @if (Auth::user()->is_admin)
         <a href="{{ route('watches.edit', $watch) }}" class="btn btn-success">Modifier</a>
         
         <form method="POST" action="{{ route('watches.destroy', $watch) }}">
@@ -49,11 +50,12 @@
                 href="{{ route('watches.destroy', $watch) }}"
             >Supprimer</button>
         </form>
-        
+        @endif
         @endauth
     </blockquote>
+
     </div>
-   
+
     </article>
-    
+
 @endsection

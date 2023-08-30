@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class favoris extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'watch_id',
+        'complication'
+    ];
 }

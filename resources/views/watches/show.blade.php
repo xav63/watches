@@ -34,10 +34,10 @@
                 type="submit"
                 class="btn btn-primary"
                 href="{{ route('watches.favoris', $watch) }}"
-            >Ajouter aux favoris</button>         --}}
-          {{-- <a href='{{ route('watches.favoris', $watch) }}' class="btn btn-primary">Ajouter aux favoris</a> --}}
+            >Ajouter aux favoris</button>
+          <a href='{{ route('watches.favoris', $watch) }}' class="btn btn-primary">Ajouter aux favoris</a>
           <br>
-        </form>
+        </form> --}}
         @if (Auth::user()->is_admin)
         <a href="{{ route('watches.edit', $watch) }}" class="btn btn-success">Modifier</a>
         

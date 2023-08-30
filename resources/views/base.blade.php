@@ -75,6 +75,8 @@
     <br>
     <div class="container">
         {{-- Barre de recherche --}}
+        {{-- @unless permet de ne pas afficher ma barre de recherche dans ma vue show --}}
+        @unless(request()->route()->getName() == 'watches.show')
         <form action="{{ route('search') }}" method="GET"
             class="form-inline my-2 my-lg-0 d-flex justify-content-center container">
             <input id='search' class="form-control mr-sm-2" type="search" name="search"
@@ -82,7 +84,7 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
         </form>
         {{-- Message en cas de non résultat --}}
-        {{-- @if ($watches->isNotEmpty())
+        @if (isset($watches) && $watches->isNotEmpty())
     @foreach ($watches as $watch)
       
     @endforeach
@@ -90,14 +92,15 @@
     <div>
         <h3 class="container text-center">Pas de résultats</h3>
     </div>
-  @endif --}}
+  @endif
+  @endunless
         <div class="show">
             @yield('content')
         </div>
         <hr>
 </body>
 <footer>
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-end sticky-bottom">
         <p>Copyright XS</p>
     </div>
 </footer>

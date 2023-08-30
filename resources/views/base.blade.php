@@ -97,10 +97,11 @@
         <div class="show">
             @yield('content')
         </div>
-        <hr>
+        
 </body>
 <footer>
-    <div class="d-flex justify-content-end sticky-bottom">
+    <hr>
+    <div class="d-flex justify-content-end">
         <p>Copyright XS</p>
     </div>
 </footer>

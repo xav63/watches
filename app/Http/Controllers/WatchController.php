@@ -17,7 +17,7 @@ class WatchController extends Controller
     {
 
         return view('watches.index',[
-             'watches' => Watch::latest()->get(),
+                'watches' => Watch::latest()->get(),
          ]);
      }
 

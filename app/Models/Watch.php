@@ -36,11 +36,5 @@ class Watch extends Model
         return $this->hasmany(Complication::class);
 
     }
-    public function favoris(): HasMany
-
-    {
-
-        return $this->hasMany(Favoris::class);
-
-    }
+    
 }

@@ -33,9 +33,9 @@ class WatchController extends Controller
             'brand'=> 'required|string|max:255',
             'name'=> 'required|string|max:255',
             'picture'=> 'required|image',
-            // 'date',
-            // 'price',
-            // 'complication'
+            'date',
+            'price',
+            'complication'
             
         ]);
 
@@ -75,7 +75,7 @@ class WatchController extends Controller
         $validated = $request->validate([
             'brand'=> 'required|string|max:255',
             'name'=> 'required|string|max:255',
-            'picture'=> 'required|image',
+            'picture',
             'date',
             'price',
             'complication'
@@ -84,7 +84,7 @@ class WatchController extends Controller
          $validated = [
             'brand' => $request->brand,
             'name' => $request->name,
-            'picture' => $request->picture->store('watches'),
+            // 'picture' => $request->picture->store('watches'),
             'date' => $request->date,
             'price' => $request->price,
             'complication' => $request->complication,

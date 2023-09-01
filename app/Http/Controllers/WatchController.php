@@ -32,7 +32,7 @@ class WatchController extends Controller
         $request->validate([
             'brand'=> 'required|string|max:255',
             'name'=> 'required|string|max:255',
-            'picture'=> 'required|image',
+            'picture'=> 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
             'date',
             'price',
             'complication'
@@ -75,7 +75,7 @@ class WatchController extends Controller
         $validated = $request->validate([
             'brand'=> 'required|string|max:255',
             'name'=> 'required|string|max:255',
-            'picture',
+            'picture'=> 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
             'date',
             'price',
             'complication'
